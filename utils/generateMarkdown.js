@@ -81,13 +81,13 @@ ${renderLicenseBadge(data.license)}
 
 ## Table of Contents 
 
-- [Description](#Description)
-- [Installation Instructions](#Installation Instructions)
-- [Examples of Uses](#Examples of Uses)
-- [Contribution Guidelines](#Contribution Guidelines)
-- [Test Examples](#Test Examples)
-- [Questions](#Questions)
-- [License](#License)
+- [Description](#description)
+- [Installation Instructions](#installation-instructions)
+- [Examples of Uses](#examples-of-uses)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Test Examples](#test-examples)
+- [Questions](#questions)
+- [License](#license)
 
 ## Description
 
