@@ -45,6 +45,7 @@ const questions = [
       name: "license",
       message: "Which license do you wish to use for your project?",
       choices: [
+         "None",
          "GNU AGPLv3",
          "GNU GPLv3",
          "GNU LGPLv3",
@@ -68,7 +69,7 @@ const writeToFile = (fileName, data) => {
          fs.mkdirSync("./dist/" + fileName);
       }
       // write file
-      fs.writeFile(filePath, JSON.stringify(data), (err) => {
+      fs.writeFile(filePath, generateMarkdown(data), (err) => {
          // if error, reject the Promise and send error to the Promise's `.catch()` method
          if (err) {
             reject(err);
@@ -87,6 +88,7 @@ const init = () => {
    inquirer
       .prompt(questions)
       .then((answers) => writeToFile(answers.title, answers))
+      .then((writeReponse) => console.log(writeReponse))
       .catch((error) => console.log(error));
 };
 
