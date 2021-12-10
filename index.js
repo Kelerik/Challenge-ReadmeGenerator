@@ -1,9 +1,9 @@
 //  Include packages needed for this application
-import fs from "fs";
-import inquirer from "inquirer";
-import generateMarkdown from "./utils/generateMarkdown.js";
+const fs = require("fs");
+const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
    // user info
    { type: "input", name: "name", message: "What is your name?" },
@@ -58,17 +58,17 @@ const questions = [
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
+const writeToFile = (fileName, data) => {
    // init filepath
    const filePath = "./dist/" + fileName + "/README.md";
    // promise
    return new Promise((resolve, reject) => {
       // create folder if doesn't exist
-      if (!fs.existsSync(filePath)) {
-         fs.mkdirSync(filePath);
+      if (!fs.existsSync("./dist/" + fileName)) {
+         fs.mkdirSync("./dist/" + fileName);
       }
       // write file
-      fs.writeFile(filePath, data, (err) => {
+      fs.writeFile(filePath, JSON.stringify(data), (err) => {
          // if error, reject the Promise and send error to the Promise's `.catch()` method
          if (err) {
             reject(err);
@@ -80,10 +80,15 @@ function writeToFile(fileName, data) {
          );
       });
    });
-}
+};
 
 // TODO: Create a function to initialize app
-function init() {}
+const init = () => {
+   inquirer
+      .prompt(questions)
+      .then((answers) => writeToFile(answers.title, answers))
+      .catch((error) => console.log(error));
+};
 
 // Function call to initialize app
 init();
