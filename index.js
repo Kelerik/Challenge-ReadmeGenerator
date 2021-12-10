@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+//  Include packages needed for this application
 import fs from "fs";
 import inquirer from "inquirer";
 import generateMarkdown from "./utils/generateMarkdown.js";
@@ -6,19 +6,58 @@ import generateMarkdown from "./utils/generateMarkdown.js";
 // TODO: Create an array of questions for user input
 const questions = [
    // user info
-   "What is your name?",
-   "What is your Github username?",
-   "What is your email address?",
+   { type: "input", name: "name", message: "What is your name?" },
+   {
+      type: "input",
+      name: "username",
+      message: "What is your Github username?",
+   },
+   { type: "input", name: "email", message: "What is your email address?" },
    // project info
-   "Enter the title of your project",
-   "Write a description of your project",
-   "Write the installation instructions for your project",
-   "Describe the uses of your project",
-   "Write the contribution guidelines for your project",
-   "Write the test instructions for your project",
+   { type: "input", name: "title", message: "Enter the title of your project" },
+   {
+      type: "input",
+      name: "description",
+      message: "Write a description of your project",
+   },
+   {
+      type: "input",
+      name: "installation",
+      message: "Write the installation instructions for your project",
+   },
+   {
+      type: "input",
+      name: "uses",
+      message: "Describe the uses of your project",
+   },
+   {
+      type: "input",
+      name: "guidelines",
+      message: "Write the contribution guidelines for your project",
+   },
+   {
+      type: "input",
+      name: "test",
+      message: "Write the test instructions for your project",
+   },
+   {
+      type: "list",
+      name: "license",
+      message: "Which license do you wish to use for your project?",
+      choices: [
+         "GNU AGPLv3",
+         "GNU GPLv3",
+         "GNU LGPLv3",
+         "Mozilla Public License 2.0",
+         "Apache License 2.0",
+         "MIT License",
+         "Boost Software License 1.0",
+         "The Unlicense",
+      ],
+   },
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
    // init filepath
    const filePath = "./dist/" + fileName + "/README.md";
