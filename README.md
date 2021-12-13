@@ -16,6 +16,8 @@ This application is a simple tool to help you generate a professional README for
 
 # Installation Instructions
 
+[Instructional video provided here!](https://drive.google.com/file/d/1SNEe6ieZpOeIFZqcm_lTLMYvUgmmcc-l/view?usp=sharing)
+
 You must have Node.js installed on your system. Visit their [website](https://nodejs.org/en/download/) to download and install.
 
 Clone the repository code. In the terminal, navigate to the application's directory, then run the following command once:
