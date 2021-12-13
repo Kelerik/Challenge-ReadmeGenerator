@@ -6,39 +6,60 @@ const generateMarkdown = require("./utils/generateMarkdown.js");
 // array of questions for user input
 const questions = [
    // user info
-   { type: "input", name: "name", message: "What is your name?" },
+   {
+      type: "input",
+      name: "name",
+      message: "What is your name?",
+      validate: (promptInput) => validateInput(promptInput),
+   },
    {
       type: "input",
       name: "username",
       message: "What is your Github username?",
+      validate: (promptInput) => validateInput(promptInput),
    },
-   { type: "input", name: "email", message: "What is your email address?" },
+   {
+      type: "input",
+      name: "email",
+      message: "What is your email address?",
+      validate: (promptInput) => validateInput(promptInput),
+   },
    // project info
-   { type: "input", name: "title", message: "Enter the title of your project" },
+   {
+      type: "input",
+      name: "title",
+      message: "Enter the title of your project",
+      validate: (promptInput) => validateInput(promptInput),
+   },
    {
       type: "input",
       name: "description",
       message: "Write a description of your project",
+      validate: (promptInput) => validateInput(promptInput),
    },
    {
       type: "input",
       name: "installation",
       message: "Write the installation instructions for your project",
+      validate: (promptInput) => validateInput(promptInput),
    },
    {
       type: "input",
       name: "uses",
-      message: "Describe the uses of your project",
+      message: "Describe how to use your project",
+      validate: (promptInput) => validateInput(promptInput),
    },
    {
       type: "input",
       name: "guidelines",
       message: "Write the contribution guidelines for your project",
+      validate: (promptInput) => validateInput(promptInput),
    },
    {
       type: "input",
       name: "test",
       message: "Write the test instructions for your project",
+      validate: (promptInput) => validateInput(promptInput),
    },
    {
       type: "list",
@@ -57,6 +78,16 @@ const questions = [
       ],
    },
 ];
+
+// function to validate input
+const validateInput = (string) => {
+   if (string) {
+      return true;
+   } else {
+      console.log("An answer is required!");
+      return false;
+   }
+};
 
 // function to write README file
 const writeToFile = (fileName, data) => {

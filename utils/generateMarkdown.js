@@ -57,7 +57,6 @@ const renderLicenseLink = (license) => {
 };
 
 // function that returns the license section of README
-// If there is no license, return an empty string
 const renderLicenseSection = (license) => {
    if (license === "None") {
       return "This project does not have any license.";
@@ -111,9 +110,10 @@ ${data.test}
 
 ## Questions
 
-- ${data.name}
-- ${data.username}
-- ${data.email}
+Contact information is provided below in case you have any questions about the project:
+- Author name: ${data.name}
+- Github: [${data.username}](https://github.com/${data.username})
+- Email: ${data.email}
 
 ## License
 
