@@ -97,7 +97,7 @@ const writeToFile = (fileName, data) => {
    return new Promise((resolve, reject) => {
       // create folder if doesn't exist
       if (!fs.existsSync("./dist/" + fileName)) {
-         fs.mkdirSync("./dist/" + fileName);
+         fs.mkdirSync("./dist/" + fileName, { recursive: true });
       }
       // write file
       fs.writeFile(filePath, generateMarkdown(data), (err) => {
@@ -114,7 +114,7 @@ const writeToFile = (fileName, data) => {
    });
 };
 
-// TODO: Create a function to initialize app
+// function to initialize app
 const init = () => {
    inquirer
       .prompt(questions)
